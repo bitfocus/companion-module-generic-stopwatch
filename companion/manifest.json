@@ -1,0 +1,30 @@
+{
+	"id": "generic-stopwatch",
+	"name": "generic-stopwatch",
+	"shortname": "stopwatch",
+	"description": "Controls a timer like a stopwatch.",
+	"version": "0.0.0",
+	"license": "MIT",
+	"repository": "git+https://github.com/bitfocus/companion-module-generic-stopwatch.git",
+	"bugs": "https://github.com/bitfocus/companion-module-generic-stopwatch/issues",
+	"maintainers": [
+		{
+			"name": "Joseph Adams",
+			"email": "josephdadams@gmail.com"
+		}
+	],
+	"legacyIds": [],
+	"runtime": {
+		"type": "node18",
+		"api": "nodejs-ipc",
+		"apiVersion": "0.0.0",
+		"entrypoint": "../index.js"
+	},
+	"manufacturer": "Generic",
+	"products": [
+		"Stopwatch"
+	],
+	"keywords": [
+		"time"
+	]
+}
