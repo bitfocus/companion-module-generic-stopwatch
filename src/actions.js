@@ -7,7 +7,15 @@ module.exports = {
 			name: 'Start',
 			options: [],
 			callback: async function (action) {
-				self.startWatch();
+				self.startWatch('+');
+			}
+		}
+
+		actions.startReverse = {
+			name: 'Start in Reverse',
+			options: [],
+			callback: async function (action) {
+				self.startWatch('-');
 			}
 		}
 

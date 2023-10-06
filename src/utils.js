@@ -1,13 +1,22 @@
 module.exports = {
-	startWatch: function () {
+	startWatch: function (dir) {
 		let self = this;
 
 		self.clearTimer();
 
 		self.timer = setInterval(() => {
-			self.watch += 50;
+			if (dir === '-') {
+				self.watch -= self.amount;
+				if (self.watch <= 0) {
+					self.watch = 0;
+					self.stopWatch();
+				}
+			} else {
+				self.watch += self.amount;
+			}
+
 			self.checkVariables();
-		}, 50);
+		}, self.amount);
 
 		self.checkFeedbacks();
 	},
