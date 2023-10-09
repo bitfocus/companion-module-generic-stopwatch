@@ -29,10 +29,10 @@ module.exports = {
 
 		//set variables
 		let variableObj = {};
-		variableObj.hmsms = `${hours}:${minutes}:${seconds}.${milliseconds}`;
+		variableObj.hmsms = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${milliseconds}`;
 		variableObj.hours = `${hours}`;
-		variableObj.minutes = `${minutes}`;
-		variableObj.seconds = `${seconds}`;
+		variableObj.minutes = `${minutes.toString().padStart(2, '0')}`;
+		variableObj.seconds = `${seconds.toString().padStart(2, '0')}`;
 		variableObj.milliseconds = `${milliseconds}`;
 
 		if (self.timer) {
