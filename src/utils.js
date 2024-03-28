@@ -4,16 +4,24 @@ module.exports = {
 
 		self.clearTimer();
 
+		self.startingValue = new Date().getTime(); //store the current time in milliseconds
+
 		self.timer = setInterval(() => {
+			let currentTime = new Date().getTime();
+
+			let diff = currentTime - self.startingValue;
+
 			if (dir === '-') {
-				self.watch -= self.amount;
+				self.watch -= diff;
 				if (self.watch <= 0) {
 					self.watch = 0;
 					self.stopWatch();
 				}
 			} else {
-				self.watch += self.amount;
+				self.watch += diff;
 			}
+
+			self.startingValue = currentTime;
 
 			self.checkVariables();
 		}, self.amount);
@@ -33,6 +41,7 @@ module.exports = {
 		self.clearTimer();
 		self.watch = 0;
 		self.checkVariables();
+		self.checkFeedbacks();
 	},
 
 	toggleWatch: function () {

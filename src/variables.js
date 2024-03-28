@@ -24,8 +24,8 @@ module.exports = {
 		//convert self.watch milliseconds into hours, minutes, seconds, milliseconds
 		let hours = Math.floor(self.watch / 3600000);
 		let minutes = Math.floor((self.watch % 3600000) / 60000);
-		let seconds = Math.floor((self.watch % 60000) / 1000);
-		let milliseconds = Math.floor(self.watch % 1000);
+		let seconds = Math.ceil((self.watch % 60000) / 1000);
+		let milliseconds = Math.ceil(self.watch % 1000);
 
 		//set variables
 		let variableObj = {};

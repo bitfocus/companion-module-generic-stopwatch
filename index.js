@@ -25,7 +25,7 @@ class stopwatchInstance extends InstanceBase {
 
 		this.timer = null;
 		this.watch = 0;
-		this.amount = 50; //milliseconds
+		this.amount = 500; //milliseconds
 	}
 
 	async destroy() {
