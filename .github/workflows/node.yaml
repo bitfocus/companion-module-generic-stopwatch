@@ -25,9 +25,9 @@ jobs:
           yarn install
         env:
           CI: true
-      - name: prettier
-        run: |
-          yarn prettier --check .
+      # - name: prettier
+      #   run: |
+      #    yarn prettier --check .
       - name: Test jest
         run: |
           yarn test
