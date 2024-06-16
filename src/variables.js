@@ -3,6 +3,7 @@ module.exports = {
 		let self = this;
 		let variables = []
 
+		variables.push({ variableId: 'hms', name: 'Hours, Minutes, Seconds' });
 		variables.push({ variableId: 'hmsms', name: 'Hours, Minutes, Seconds, Milliseconds' });
 
 		variables.push({ variableId: 'hours', name: 'Hours' });
@@ -11,7 +12,7 @@ module.exports = {
 		variables.push({ variableId: 'milliseconds', name: 'Milliseconds' });
 
 		variables.push({ variableId: 'isRunning', name: 'Is Running' });
-		
+
 		self.setVariableDefinitions(variables);
 
 		self.watch = 0;
@@ -33,6 +34,7 @@ module.exports = {
 		variableObj.minutes = `${minutes.toString().padStart(2, '0')}`;
 		variableObj.seconds = `${seconds.toString().padStart(2, '0')}`;
 		variableObj.milliseconds = `${milliseconds.toString().padStart(3, '0')}`;
+		variableObj.hms = `${variableObj.hours}:${variableObj.minutes}:${variableObj.seconds}`;
 		variableObj.hmsms = `${variableObj.hours}:${variableObj.minutes}:${variableObj.seconds}.${variableObj.milliseconds}`;
 
 		if (self.timer) {
