@@ -1,3 +1,3 @@
 # companion-module-generic-stopwatch
 
-See HELP.md and License.
+See [HELP.md](./companion/HELP.md) and [LICENSE](./LICENSE)

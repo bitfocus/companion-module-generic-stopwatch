@@ -17,6 +17,9 @@ function checkVariableValues(initial, hours, minutes, seconds, milliseconds) {
   expect(variableValues.minutes).toBe(minutes);
   expect(variableValues.seconds).toBe(seconds);
   expect(variableValues.milliseconds).toBe(milliseconds);
+  expect(variableValues.hms).toBe(
+    `${hours}:${minutes}:${seconds}`
+  );
   expect(variableValues.hmsms).toBe(
     `${hours}:${minutes}:${seconds}.${milliseconds}`
   );
