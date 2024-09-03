@@ -25,7 +25,7 @@ class stopwatchInstance extends InstanceBase {
 
 		this.timer = null;
 		this.watch = 0;
-		this.amount = 500; //milliseconds
+		this.precision = 500; //milliseconds
 	}
 
 	async destroy() {
@@ -45,6 +45,10 @@ class stopwatchInstance extends InstanceBase {
 		this.initPresets();
 
 		this.updateStatus(InstanceStatus.Ok);
+
+		if (this.config.precision) {
+			this.precision = parseInt(this.config.precision);
+		}
 	}
 }
 

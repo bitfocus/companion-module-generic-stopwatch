@@ -24,7 +24,7 @@ module.exports = {
 			self.startingValue = currentTime;
 
 			self.checkVariables();
-		}, self.amount);
+		}, self.precision);
 
 		self.checkFeedbacks();
 	},
