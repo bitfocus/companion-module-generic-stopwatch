@@ -4,7 +4,12 @@ module.exports = {
 
 		self.clearTimer();
 
-		self.startingValue = new Date().getTime(); //store the current time in milliseconds
+		self.startingValue = new Date().getTime();
+		if (dir === '-') {
+			if (self.config && self.config['production-timer']) {
+				self.watch = Math.ceil((self.watch + 1) / 1000) * 1000 - 1;
+			}
+		}
 
 		self.timer = setInterval(() => {
 			let currentTime = new Date().getTime();
@@ -13,7 +18,10 @@ module.exports = {
 
 			if (dir === '-') {
 				self.watch -= diff;
-				if (self.watch <= 0) {
+				if (
+					(self.config && self.config['production-timer'] && self.watch < 1000) ||
+					(!self.config?.['production-timer'] && self.watch <= 0)
+				) {
 					self.watch = 0;
 					self.stopWatch();
 				}

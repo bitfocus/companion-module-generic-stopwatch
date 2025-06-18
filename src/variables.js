@@ -38,7 +38,7 @@ module.exports = {
 		//set variables
 		let variableObj = {};
 
-		variableObj.hours = `${hours}`;
+		variableObj.hours = `${hours.toString().padStart(2, '0')}`;
 		variableObj.minutes = `${minutes.toString().padStart(2, '0')}`;
 		variableObj.seconds = `${seconds.toString().padStart(2, '0')}`;
 		variableObj.milliseconds = `${milliseconds.toString().padStart(3, '0')}`;
