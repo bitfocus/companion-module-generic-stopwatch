@@ -23,7 +23,14 @@ module.exports = {
 				width: 8,
 				label: '',
 				value: 'The precision of the stopwatch in milliseconds.'
-			}
+			},
+			{
+				type: 'checkbox',
+				id: 'production-timer',
+				label: 'Production Timer Mode (See Help)',
+				width: 12,
+				default: false,
+			},
 		]
 	},
 }
