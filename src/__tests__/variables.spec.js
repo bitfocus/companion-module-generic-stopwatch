@@ -2,11 +2,11 @@ const variables = require("../variables");
 
 describe("variables", () => {
   it("rounds correctly", () => {
-    checkVariableValues({ watch: 1500 }, "0", "00", "01", "500");
+    checkVariableValues({ watch: 1500 }, "00", "00", "01", "500");
   });
 
   it("pads correctly", () => {
-    checkVariableValues({ watch: 42 }, "0", "00", "00", "042");
+    checkVariableValues({ watch: 42 }, "00", "00", "00", "042");
   });
 });
 
