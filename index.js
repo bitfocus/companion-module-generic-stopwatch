@@ -77,8 +77,6 @@ class stopwatchInstance extends InstanceBase {
 		const http = require('http');
 		const url = require('url');
 
-		const fontSize = this.config.fontSize || '6';
-
 		this.httpServer = http.createServer((req, res) => {
 			const parsedUrl = url.parse(req.url, true);
 			const pathname = parsedUrl.pathname;
