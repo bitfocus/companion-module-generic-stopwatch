@@ -57,5 +57,6 @@ module.exports = {
 		}
 
 		self.setVariableValues(variableObj);
+		self.variableValues = variableObj;
 	}
 }

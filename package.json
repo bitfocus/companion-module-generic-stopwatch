@@ -11,7 +11,8 @@
 		"url": "git+https://github.com/bitfocus/companion-module-generic-stopwatch.git"
 	},
 	"dependencies": {
-		"@companion-module/base": "^1.12.1"
+		"@companion-module/base": "^1.12.1",
+		"ws": "^8.18.3"
 	},
 	"devDependencies": {
 		"@companion-module/tools": "^2.3.0",

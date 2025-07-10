@@ -23,10 +23,18 @@ module.exports = {
 					(!self.config?.['production-timer'] && self.watch <= 0)
 				) {
 					self.watch = 0;
+					if (typeof self.broadcastTime === 'function') {
+						self.broadcastTime();
+					}
+					self.checkVariables();
 					self.stopWatch();
 				}
 			} else {
 				self.watch += diff;
+			}
+
+			if (typeof self.broadcastTime === 'function') {
+				self.broadcastTime();
 			}
 
 			self.startingValue = currentTime;
@@ -49,6 +57,9 @@ module.exports = {
 		self.clearTimer();
 		self.watch = 0;
 		self.checkVariables();
+		if (typeof self.broadcastTime === 'function') {
+			self.broadcastTime();
+		}
 		self.checkFeedbacks();
 	},
 
@@ -69,6 +80,9 @@ module.exports = {
 
 		self.watch = (hours * 3600000) + (minutes * 60000) + (seconds * 1000);
 		self.checkVariables();
+		if (typeof self.broadcastTime === 'function') {
+			self.broadcastTime();
+		}
 	},
 
 	addWatch: function (hours, minutes, seconds) {
@@ -76,6 +90,9 @@ module.exports = {
 
 		self.watch += (hours * 3600000) + (minutes * 60000) + (seconds * 1000);
 		self.checkVariables();
+		if (typeof self.broadcastTime === 'function') {
+			self.broadcastTime();
+		}
 		self.checkFeedbacks();
 	},
 
@@ -84,6 +101,9 @@ module.exports = {
 
 		self.watch -= (hours * 3600000) + (minutes * 60000) + (seconds * 1000);
 		self.checkVariables();
+		if (typeof self.broadcastTime === 'function') {
+			self.broadcastTime();
+		}
 		self.checkFeedbacks();
 	},
 
