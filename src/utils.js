@@ -83,6 +83,7 @@ module.exports = {
 		let self = this;
 
 		self.watch -= (hours * 3600000) + (minutes * 60000) + (seconds * 1000);
+		self.watch = Math.max(self.watch, 0); // prevent negative time
 		self.checkVariables();
 		self.checkFeedbacks();
 	},
