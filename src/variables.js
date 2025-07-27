@@ -14,12 +14,21 @@ module.exports = {
 		variables.push({ variableId: 'mmm', name: 'Minutes Only (MMM)' });
 		variables.push({ variableId: 'sss', name: 'Seconds Only (SSS)' });
 
+		variables.push({ variableId: 'target12_hms', name: 'Target Time AM/PM (hh:MM:SS)' });
+		variables.push({ variableId: 'target24_hms', name: 'Target Time 24hrs (HH:MM:SS)' });
+
 		variables.push({ variableId: 'isRunning', name: 'Is Running' });
+		variables.push({ variableId: 'isReverse', name: 'Is Reverse' });
 
 		self.setVariableDefinitions(variables);
 
 		self.watch = 0;
 		self.checkVariables();
+		self.setVariableValues({
+			target12_hms: '--:--:--',
+			target24_hms: '--:--:--',
+			isReverse: false,
+		});
 	},
 
 	checkVariables: function () {
