@@ -16,10 +16,28 @@ module.exports = {
 				color: foregroundColor,
 				bgcolor: backgroundColorRed,
 			},
-			options: [],
+			options: [
+				{
+                    type: 'dropdown',
+                    label: 'Direction',
+                    id: 'dir',
+                    default: 'any',
+                    choices: [
+                        { id: undefined, label: 'Any' },
+                        { id: '+', label: 'Normal' },
+                        { id: '-', label: 'Reverse' },
+                    ],
+                },
+			],
 			callback: function (feedback, bank) {
-				if (self.timer) {
-					return true
+				if (feedback.options.dir == undefined && self.timer) {
+					return true;
+				}
+				else if (feedback.options.dir === '+' && self.timer && !(typeof self.targetTime === 'number' && !isNaN(self.targetTime))) {
+					return true;
+				}
+				else if (feedback.options.dir === '-' && self.timer && typeof self.targetTime === 'number' && !isNaN(self.targetTime)) {
+					return true;
 				}
 
 				return false
