@@ -16,7 +16,7 @@ module.exports = {
 			options: [],
 			callback: async function (action) {
 				self.startWatch('-');
-			}
+			},
 		}
 
 		actions.stop = {
@@ -76,6 +76,9 @@ module.exports = {
 				let seconds = parseInt(await self.parseVariablesInString(opt.seconds));
 
 				self.setWatch(hours, minutes, seconds);
+				if (typeof self.broadcastTime === 'function') {
+					self.broadcastTime();
+				}
 			}
 		}
 
@@ -112,6 +115,9 @@ module.exports = {
 				let seconds = parseInt(await self.parseVariablesInString(opt.seconds));
 
 				self.addWatch(hours, minutes, seconds);
+				if (typeof self.broadcastTime === 'function') {
+					self.broadcastTime();
+				}
 			}
 		}
 
@@ -148,6 +154,9 @@ module.exports = {
 				let seconds = parseInt(await self.parseVariablesInString(opt.seconds));
 
 				self.subtractWatch(hours, minutes, seconds);
+				if (typeof self.broadcastTime === 'function') {
+					self.broadcastTime();
+				}
 			}
 		}
 

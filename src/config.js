@@ -15,7 +15,7 @@ module.exports = {
 				id: 'precision',
 				label: 'Precision',
 				width: 4,
-				default: 500
+				default: 1
 			},
 			{
 				type: 'static-text',
@@ -30,6 +30,20 @@ module.exports = {
 				label: 'Production Timer Mode (See Help)',
 				width: 12,
 				default: false,
+			},
+			{
+				type: 'textinput',
+				id: 'port',
+				label: 'Web Server Port',
+				width: 4,
+				default: 3001
+			},
+			{
+				type: 'static-text',
+				id: 'port-info',
+				width: 8,
+				label: '',
+				value: 'The port for the webserver clock. Requires restarting the module to take effect.',
 			},
 		]
 	},
