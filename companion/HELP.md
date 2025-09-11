@@ -7,6 +7,9 @@ This module provides a virtual stopwatch that can be controlled through Companio
 ### Precision
 Set the precision of the timer in milliseconds. The default is 500ms, which updates the display twice per second. Lower values (like 100ms) provide more frequent updates but use more system resources.
 
+### Web Server Port
+You can view the timer in HH:MM:SS remotely in a webpage by going to the companion IP address and the port you define in the configuration.
+
 ### Production Timer Mode
 When enabled, this mode emulates the behavior of certain broadcast or production countdown clocks. It affects how countdowns behave when starting in reverse (counting down):
 
