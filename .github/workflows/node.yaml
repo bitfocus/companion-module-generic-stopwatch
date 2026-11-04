@@ -1,40 +1,42 @@
 name: Node CI
 
 on:
-  push:
-  pull_request:
+    push:
+    pull_request:
 
 jobs:
-  test:
-    name: Test
-    runs-on: ubuntu-latest
+    test:
+        name: Test
+        runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version: [18.x]
+        strategy:
+            fail-fast: false
+            matrix:
+                node-version: [26.x]
 
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Prepare Environment
-        run: |
-          yarn install
-        env:
-          CI: true
-      # - name: prettier
-      #   run: |
-      #    yarn prettier --check .
-      - name: Test jest
-        run: |
-          yarn test
-        env:
-          CI: true
-      - name: Test package
-        run: |
-          yarn companion-module-build
-        env:
-          CI: true
+        steps:
+            - uses: actions/checkout@v4
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: Enable pinned package manager
+              run: npm install --global corepack@0.34.6 && corepack enable
+            - name: Prepare Environment
+              run: |
+                  yarn install --immutable
+              env:
+                  CI: true
+            # - name: prettier
+            #   run: |
+            #    yarn prettier --check .
+            - name: Test jest
+              run: |
+                  yarn test
+              env:
+                  CI: true
+            - name: Test package
+              run: |
+                  yarn companion-module-build
+              env:
+                  CI: true

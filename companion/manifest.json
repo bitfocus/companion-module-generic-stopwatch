@@ -15,17 +15,12 @@
 	],
 	"legacyIds": [],
 	"runtime": {
-		"type": "node18",
+		"type": "node26",
 		"api": "nodejs-ipc",
 		"apiVersion": "0.0.0",
 		"entrypoint": "../index.js"
 	},
 	"manufacturer": "Generic",
-	"products": [
-		"Stopwatch"
-	],
-	"keywords": [
-		"time",
-		"timer"
-	]
+	"products": ["Stopwatch"],
+	"keywords": ["time", "timer"]
 }
